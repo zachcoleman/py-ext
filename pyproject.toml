@@ -1,0 +1,22 @@
+[build-system]
+requires = [
+    "wheel",
+    "setuptools>=42",
+    "setuptools-rust",
+    "pybind11>=2.10.0",
+    "maturin>=0.13,<0.14",
+]
+build-backend = "setuptools.build_meta"
+# build-backend = "maturin"
+
+[project]
+name = "py-ext"
+version = "0.0.1"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Rust",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Programming Language :: Python :: Implementation :: PyPy",
+]
+
+

@@ -1,0 +1,15 @@
+[package]
+name = "py-ext"
+version = "0.0.1"
+edition = "2021"
+
+[lib]
+name = "py_ext"
+crate-type = ["cdylib"]
+path = "./rust/lib.rs"
+
+[package.metadata.maturin]
+name = "py_ext.rust_ext"
+
+[dependencies]
+pyo3 = { version = "0.17.1", features = ["extension-module"] }
