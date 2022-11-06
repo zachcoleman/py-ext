@@ -1,7 +1,7 @@
 use pyo3::prelude::*;
 
 #[pyclass]
-struct ComplexNumber {
+pub struct ComplexNumber {
     x: f32,
     y: f32,
 }
@@ -27,7 +27,15 @@ impl ComplexNumber {
     fn abs(&self) -> f32 {
         self.x * self.x + self.y * self.y
     }
-
+    fn __repr__(&self) -> String {
+        if self.y == 0. {
+            return format!("{}", self.x);
+        }
+        if self.y < 0. {
+            return format!("{} - {}i", self.x, self.y);
+        }
+        return format!("{} + {}i", self.x, self.y);
+    }
     fn member_of_mandelbrot(&self, max_iter: u8) -> bool {
         let mut z = ComplexNumber { x: 0., y: 0. };
         for _ in 0..max_iter {
